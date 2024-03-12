@@ -100,7 +100,7 @@ select  id, cliente_id, data_pedido from pedidos;
 
 /* 	INNER join: Retorna  registros quando há pelo menos uma correspodência em ambas as tabelas */
 
-select  c.id, c.nome, ,p.id, p.data_pedido, p.cliente_id from clientes c
+select  c.id, c.nome ,p.id, p.data_pedido, p.cliente_id from clientes c
 inner join  pedidos p on c.id = p.cliente_id;
 /* neste exemplo estamos selecionando todas as colunas das tabelas (clientes e pedido)
 *onde há uma correspondência entre o id  na tabela clientes e o cliente_id na tabela pedidos
@@ -113,4 +113,18 @@ inner join  pedidos p on c.id = p.cliente_id;
 
 select  c.id, c.nome,  p.id, p.data_pedido, p.cliente_id from clientes c  left join  pedidos p  on c.id = p.cliente_id ;
 
-/*  aqui, estamos selecionando todos os registros da tabela clientes e os resultados*/
+/*  aqui, estamos selecionando todos os registros da tabela clientes e os registros 
+ * correspondentes da tabela pedidos, se houver,com base na correspondência de
+ * id e cliente_id
+ */
+
+/* RIGHT JOIN: Retorna todos os registros da tabela  da direita (segunda tabela mencionada)
+ * os registros correspondentes da tabela da esquerdac(primeira tabela mencionada).
+*/
+
+select c.id, c.nome, p.id, p.data_pedido, p.cliente_id from clientes c 
+right join pedidos p on c.id  = p.cliente_id ;
+/* este comando retorna todos os registro da tabela pedidos e os  registros 
+ * correspondentes da tabela clientes, se houver, com base  na correspondência
+ *  de id e clientes_id
+ */
